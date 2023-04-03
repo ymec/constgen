@@ -1,5 +1,5 @@
-import os.path
-from constgen.generators.common import Outputer, Constant, Enum
+import os
+from constgen.generators.common import Outputer, Constant, Enum, Type
 
 class GoOutputer(Outputer):
     def __init__(self, *args, **kwargs):
@@ -30,3 +30,7 @@ class GoOutputer(Outputer):
             self._output.write(f'const {name} = "{constant.value}"\n')
         else:
             self._output.write(f'const {name} = {constant.value}\n')
+
+    def output_type(self, type: Type):
+        super().output_type(type, "type")
+

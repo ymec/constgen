@@ -1,5 +1,5 @@
 from constgen.generators import COutputer, Python2Outputer, Python3Outputer, JavaOutputer,\
-    JavascriptOutputer, RustOutputer, VueMixinOutputer, GoOutputer, Constant, Enum
+    JavascriptOutputer, RustOutputer, VueMixinOutputer, GoOutputer, Constant, Enum, Type
 from pydantic import BaseModel
 from typing import List
 
@@ -16,6 +16,7 @@ class AllOutputs (BaseModel):
 
 
 class RootConfig (BaseModel):
-    enums : List[Enum] = []
-    constants : List[Constant] = []
+    enums: List[Enum] = []
+    constants: List[Constant] = []
     outputs: AllOutputs
+    types: List[Type] = []

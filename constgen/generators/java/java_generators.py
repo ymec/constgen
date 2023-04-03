@@ -1,4 +1,4 @@
-from constgen.generators.common import Outputer, Constant, Enum
+from constgen.generators.common import Outputer, Constant, Enum, Type
 import textwrap
 import inflection
 import os
@@ -33,3 +33,6 @@ class JavaOutputer (Outputer):
             self._output.write(f'\tpublic static final String {name} = "{constant.value}";\n')
         else:
             self._output.write(f'\tpublic static final {type(constant.value).__name__} {name} = {constant.value};\n')
+
+    def output_type(self, type: Type):
+        print(f"WARNING: No type definition support implemented for class: {self.__class__.__name__} - skipping")

@@ -1,4 +1,4 @@
-from constgen.generators.common import Enum
+from constgen.generators.common import Enum, Type
 from constgen.generators.javascript import JavascriptOutputer
 import textwrap
 
@@ -17,3 +17,6 @@ class VueMixinOutputer(JavascriptOutputer):
               }}
             }}
             """))
+
+    def output_type(self, type: Type):
+        print(f"WARNING: No type definition support implemented for class: {self.__class__.__name__} - skipping")

@@ -1,4 +1,4 @@
-from constgen.generators.common import Outputer, Constant, Enum
+from constgen.generators.common import Outputer, Constant, Enum, Type
 import textwrap
 import inflection
 
@@ -33,3 +33,6 @@ class COutputer (Outputer):
             self._output.write(f'const char* {name} = "{constant.value}";\n')
         else:
             self._output.write(f'const {type(constant.value).__name__} {name} = {constant.value};\n')
+
+    def output_type(self, type: Type):
+        super().output_type(type, "typedef", ";")
