@@ -23,6 +23,10 @@ Supported Languages:
 ```
 pip install git+https://github.com/ymec/constgen.git
 ```
+OR
+```
+pip install constgen
+```
 
 ## Usage
 Create a configuration yaml (for an example see `example.yaml`)
@@ -30,3 +34,7 @@ Create a configuration yaml (for an example see `example.yaml`)
 ```
 constgen example.yaml
 ```
+
+# Known Issues
+
+Currently running main only works through pip installing the tool - running directly with python would cause import errors
