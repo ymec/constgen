@@ -11,6 +11,8 @@ export const SomeEnum = {
 	A : 5,
 	B : 6,
 	C : 7,
+}
 export const OtherEnum = {
 	FOO : 0,
 	BAR : 1,
+}
