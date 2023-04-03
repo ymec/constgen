@@ -15,7 +15,9 @@ class GoOutputer(Outputer):
         return f"generated_{name}"
 
     def output_enum(self, enum : Enum):
-        self._output.write(f"const (\n\t{self._pascalize(enum.values[0])} = iota\n")
+        enum_type = enum.type if enum.type else ''
+        starting_value_string = f"+ {enum.start_value}" if enum.start_value else ''
+        self._output.write(f"const (\n\t{self._pascalize(enum.values[0])} {enum_type} = iota {starting_value_string}\n")
         for value in enum.values[1:]:
             self._output.write(f"\t{self._pascalize(value)}\n")
         self._output.write(")\n\n")

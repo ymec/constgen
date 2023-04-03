@@ -10,6 +10,8 @@ enums:
     - A
     - B
     - C
+  type: CommandType
+  start_value: 5
 - name: OtherEnum
   values:
     - FOO

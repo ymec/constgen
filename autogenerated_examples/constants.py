@@ -9,9 +9,9 @@ OTHER_CONSTANT = 42
 
 # enums
 class SomeEnum(Enum):
-	A = 0
-	B = 1
-	C = 2
+	A = 5
+	B = 6
+	C = 7
 
 class OtherEnum(Enum):
 	FOO = 0

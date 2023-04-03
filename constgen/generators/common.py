@@ -1,5 +1,5 @@
 from pydantic import BaseModel, PrivateAttr
-from typing import List, TextIO, Union
+from typing import List, TextIO, Union, Optional
 
 
 class Type(BaseModel):
@@ -9,6 +9,8 @@ class Type(BaseModel):
 class Enum (BaseModel):
     name: str
     values: List[str]
+    type: Optional[str]
+    start_value: Optional[int]
 
 
 class Constant (BaseModel):
@@ -32,8 +34,9 @@ class Outputer(BaseModel):
         self._output.close()
 
     def output_enum(self, enum: Enum, prefix="", assignment="=", suffix=""):
+        start_value = enum.start_value if enum.start_value else 0
         for (i, value) in enumerate(enum.values):
-            self._output.write(f"{prefix}{value} {assignment} {i}{suffix}\n")
+            self._output.write(f"{prefix}{value} {assignment} {i+start_value}{suffix}\n")
 
     def output_comment(self, comment):
         indent = '\t' * self._comment_indentation

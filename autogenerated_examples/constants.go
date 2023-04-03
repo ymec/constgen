@@ -10,13 +10,13 @@ const OtherConstant = 42
 
 // enums
 const (
-	A = iota
+	A CommandType = iota + 5
 	B
 	C
 )
 
 const (
-	Foo = iota
+	Foo  = iota 
 	Bar
 )
 

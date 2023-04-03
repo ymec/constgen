@@ -9,7 +9,6 @@ class JavascriptOutputer(Outputer):
     def output_enum(self, enum : Enum):
         self._output.write(f"export const {enum.name} = {{\n")
         super().output_enum(enum, prefix=f"\t", assignment=":", suffix=",")
-        self._output.write(f"}}\n")
 
     def output_constant(self, constant: Constant):
         return super().output_constant(constant, prefix="export const ")

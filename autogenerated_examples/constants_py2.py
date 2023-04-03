@@ -7,8 +7,8 @@ SOME_CONSTANT = "this is a constant string"
 OTHER_CONSTANT = 42
 
 # enums
-SOME_ENUM_A = 0
-SOME_ENUM_B = 1
-SOME_ENUM_C = 2
+SOME_ENUM_A = 5
+SOME_ENUM_B = 6
+SOME_ENUM_C = 7
 OTHER_ENUM_FOO = 0
 OTHER_ENUM_BAR = 1
