@@ -1,6 +1,6 @@
 from pydantic import BaseModel, PrivateAttr
 from typing import List, TextIO, Union, Optional
-
+import os
 
 class Type(BaseModel):
     new_type: str
@@ -26,6 +26,7 @@ class Outputer(BaseModel):
 
     def __init__(self, *args, comment_mark="#", comment_indentation=0, **kwargs):
         super().__init__(*args, **kwargs)
+        self._create_dir_if_not_exists(self.path)
         self._output = open(self.path, "w")
         self._comment_mark = comment_mark
         self._comment_indentation = comment_indentation
@@ -33,6 +34,10 @@ class Outputer(BaseModel):
     def __del__(self):
         self._output.close()
 
+    @staticmethod
+    def _create_dir_if_not_exists(path):
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        
     def output_enum(self, enum: Enum, prefix="", assignment="=", suffix=""):
         start_value = enum.start_value if enum.start_value else 0
         for (i, value) in enumerate(enum.values):
